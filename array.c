@@ -33,7 +33,30 @@ void fillArray(int * myArray, int num)
  */
 int deleteSingleValue(int * myArray, int length)
 {
-	return length;
+	int deleteChar, i, j, flag = 0;
+    printf("Enter number to delete: ");
+    scanf("%d", &deleteChar);
+
+    for(i = 1; i < length; i++)
+    {
+        if(myArray[i] == deleteChar)
+        {
+            flag = 1;
+            myArray[i] = 0;
+            for(j = 1; j < i; i++)
+            {
+                if(j >= i)
+                    myArray[j] = myArray[i+1];
+                    
+
+            }
+        }
+
+    }
+    if(flag == 0)
+        printf("Value NOT found");
+    
+    return length;
 }// end method
 
 
