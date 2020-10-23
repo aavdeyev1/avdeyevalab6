@@ -11,7 +11,7 @@ extern const int MAX;
 void fillArray(int * myArray, int num)
 {
     int i;
-	for(i = 1; i < MAX + 1; i++)
+	for(i = 0; i < MAX; i++)
     {
         myArray[i] = rand() % (num - 1 + 1) + 1;
 
@@ -37,24 +37,24 @@ int deleteSingleValue(int * myArray, int length)
     printf("Enter number to delete: ");
     scanf("%d", &deleteChar);
 
-    for(i = 1; i < length; i++)
+    for(i = 0; i < length; i++)
     {
         if(myArray[i] == deleteChar)
         {
             flag = 1;
             myArray[i] = 0;
-            for(j = 1; j < i; i++)
+            length--;
+            for(j = 0; j < length; j++)
             {
                 if(j >= i)
-                    myArray[j] = myArray[i+1];
-                    
+                    myArray[j] = myArray[j + 1];
 
             }
         }
-
     }
+
     if(flag == 0)
-        printf("Value NOT found");
+        printf("Value NOT found\n");
     
     return length;
 }// end method
@@ -72,15 +72,14 @@ void printArray(int * myArray, int length)
 {
     int i;
     printf("[");
-    for(i = 1; i < length + 1; i++)
+    for(i = 0; i < length; i++)
     {
-        if(i == length)
-            printf("%d]", myArray[i]);
+        if(i == length-1)
+            printf("%d]\n", myArray[i]);
         else
             printf("%d, ", myArray[i]);
 
     }
-printf("]\n");
 
 }// end printArray
 

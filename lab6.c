@@ -5,7 +5,7 @@ extern const int MAX;
 int readNum()
 {
 	int num=142;
-	printf("Enter a number greater that 100: ");
+	printf("Enter a number greater than 100: ");
     scanf("%d", &num);
     while(num < 100)
     {
