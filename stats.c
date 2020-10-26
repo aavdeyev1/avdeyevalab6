@@ -5,8 +5,7 @@ extern const int MAX;
 
 double computeMean(int * myArray, int length)
 {
-    int i;
-    int sum;
+    int i, sum = 0;
     double mean = 0.0;
     for(i = 0; i < length; i++)
         sum = sum + myArray[i];
@@ -33,10 +32,10 @@ double computeMedian(int * myArray, int length)
     {
         i1 = length / 2;
         i2 = i1 - 1;
-        median = (double) (myArray[i1] + myArray[i2]) / 2;
+        median = (double) (myArray[i1] + myArray[i2]) / 2.0;
     }
     else
-        median = myArray[length / 2];
+        median = (double) myArray[length / 2];
 
     return median;
 }
@@ -54,17 +53,18 @@ double computeMidpoint(int * myArray, int length)
 
 double computeStdDev(int * myArray, int length)
 {
-	int temp[MAX];
-	double theMean = computeMean(myArray, length), stdDev;
-    int i, j, k, sum;
+	double temp[MAX];
+	double theMean = computeMean(myArray, length), stdDev, sqrtnum;
+    int i, k, sum = 0;
 
     for(i = 0; i < length; i++)
         temp[i] = (myArray[i] - theMean) * (myArray[i] - theMean);
     
     for(k = 0; k < length; k++)
-        sum = temp[k] + sum;
+        sum += temp[k];
 
-    stdDev = sqrt((double) sum / (length));
+    sqrtnum = (double) sum / ((double) (length - 1));
+    stdDev = sqrt(sqrtnum);
 
 	return stdDev;
 }

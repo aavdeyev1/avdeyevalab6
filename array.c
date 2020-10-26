@@ -42,15 +42,18 @@ int deleteSingleValue(int * myArray, int length)
         if(myArray[i] == deleteChar)
         {
             flag = 1;
-            myArray[i] = 0;
-            length--;
-            for(j = 0; j < length; j++)
+            for(j = i; j < length; j++)
             {
-                if(j >= i)
-                    myArray[j] = myArray[j + 1];
+                myArray[j] = myArray[j + 1];
 
             }
+
+            myArray[length-1] = 0;
+            length--;
         }
+        if(flag == 1)
+            i = length;
+    
     }
 
     if(flag == 0)

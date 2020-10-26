@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "lab6.h"
 #include "stats.h"
 #include "array.h"
@@ -8,10 +9,11 @@ const int MAX = 25;
 
 int main()
 {
-    int num, choice;
+  int num, choice;
   int myArray[MAX], actual;
   double mean, median, midpoint, stdDev;
 
+  srand(time(0));
   num = readNum();  // lab6.c
   fillArray(myArray, num); // array.c
   actual = MAX;
